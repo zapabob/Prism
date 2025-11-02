@@ -1,0 +1,26 @@
+{
+  "name": "@prism/types",
+  "version": "1.0.0",
+  "description": "Shared TypeScript types for Prism monorepo",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "prism",
+    "types",
+    "typescript"
+  ],
+  "author": "zapabob",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
+
