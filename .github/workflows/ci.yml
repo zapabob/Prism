@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [20.x]
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci || npm install
+      
+      - name: Type check
+        run: |
+          cd packages/types && npm run type-check
+          cd ../git-core && npm run type-check
+          cd ../supervisor && npm run type-check
+          cd ../consensus && npm run type-check
+          cd ../blueprint && npm run type-check
+          cd ../webhook && npm run type-check
+          cd ../mcp-clients && npm run type-check
+      
+      - name: Build
+        run: |
+          cd packages/types && npm run build
+          cd ../git-core && npm run build
+          cd ../supervisor && npm run build
+          cd ../consensus && npm run build
+          cd ../blueprint && npm run build
+          cd ../webhook && npm run build
+          cd ../mcp-clients && npm run build
+      
+      - name: Security audit
+        run: npm audit --production
+        continue-on-error: true
+
+  rust-build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          components: clippy
+          override: true
+      
+      - name: Build Gemini MCP Server
+        run: |
+          cd mcp-servers/gemini-cli-mcp
+          cargo build --release
+      
+      - name: Clippy check
+        run: |
+          cd mcp-servers/gemini-cli-mcp
+          cargo clippy -- -D warnings
+
