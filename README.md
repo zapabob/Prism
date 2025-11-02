@@ -3,11 +3,11 @@
 > Multi-LLM orchestration with conflict-free concurrent development using Git worktrees.
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/zapabob/prism)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-Apache2.0-red.svg)](https://opensource.org/licenses/Apache2.0)
 
 ## 🌟 Features
 
-- 🤖 **Multi-AI Orchestration**: Run unlimited AI instances in parallel (Codex, Gemini, Claude, GPT-4, Claude 3)
+- 🤖 **Multi-AI Orchestration**: Run unlimited AI instances in parallel (Codex, Gemini, Claude, GPT-5, Claude 4.5)
 - 🌳 **Git Worktree Integration**: Conflict-free concurrent development with automatic worktree management
 - 🎯 **Blueprint System**: Define and execute complex multi-step workflows
 - 📊 **3D Git Visualization**: Kamui4d-inspired real-time 3D repository visualization
