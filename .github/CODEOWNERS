@@ -1,0 +1,11 @@
+# Prism Code Owners
+
+* @zapabob
+
+/packages/ @zapabob
+/mcp-servers/ @zapabob
+/extensions/ @zapabob
+/kernel-extensions/ @zapabob
+/apps/ @zapabob
+/docs/ @zapabob
+*.md @zapabob
