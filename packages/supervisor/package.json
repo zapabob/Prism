@@ -1,0 +1,31 @@
+{
+  "name": "@prism/supervisor",
+  "version": "1.0.0",
+  "description": "AI Orchestration Engine with parallel execution for Prism",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "prism",
+    "supervisor",
+    "orchestration",
+    "typescript"
+  ],
+  "author": "zapabob",
+  "license": "MIT",
+  "dependencies": {
+    "@prism/types": "file:../types"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "typescript": "^5.3.3"
+  }
+}
+
